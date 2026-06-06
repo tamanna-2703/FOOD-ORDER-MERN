@@ -1,111 +1,97 @@
-﻿# ≡ƒìö FOOD-ORDER-MERN
+Tomato - Full Stack Food Ordering Web App
+A robust, fully responsive food delivery platform built using the MERN stack (MongoDB, Express, React, Node.js). This project consists of three main components: a customer-facing frontend, an admin panel for restaurant management, and a backend API handling data, authentication, and payments.
 
-A full-stack Food Ordering Web Application built with the **MERN Stack** (MongoDB, Express.js, React.js, Node.js).
+🛠️ Tech Stack
+Frontend (Client & Admin):
 
----
+React JS: For building the user interface.
+Vite: Build tool for fast development.
+React Router: For navigation and routing.
+Context API: For global state management (Cart, Authentication).
+CSS: Custom styling with media queries for responsiveness.
+Backend:
 
-## ≡ƒÜÇ Features
+Node.js & Express.js: Server-side runtime and framework.
+JWT (JSON Web Token): For secure user authentication.
+Bcrypt: For password hashing.
+Multer: For image upload and storage.
+Stripe: Payment gateway integration.
+Validator: For email and password validation.
+Database:
 
-- ≡ƒ¢Æ Browse and order food items
-- ≡ƒöÉ User Authentication (Register / Login)
-- ≡ƒº║ Cart Management
-- ≡ƒôª Order Placement & Tracking
-- ≡ƒ¢á∩╕Å Admin Panel to manage food items & orders
-- ≡ƒÆ│ Payment Integration
-- ≡ƒô▒ Responsive Design
+MongoDB Atlas: Cloud-based NoSQL database.
+Mongoose: ODM for schema modeling.
+✨ Features
+🛒 User Features
+Food Menu: Browse food items by category (Salads, Deserts, etc.).
+Cart Management: Add/remove items, adjust quantities, and view real-time totals.
+Authentication: Sign up and Login with JWT and Bcrypt security.
+Order Placement: Enter delivery details and pay securely via Stripe.
+My Orders: Track order status (Processing, Out for Delivery, Delivered).
+🛡️ Admin Panel
+Add Items: Upload new food items with images, prices, and descriptions.
+List Items: View and delete existing food inventory.
+Order Management: View all user orders and update their status (e.g., "Food Processing" to "Out for Delivery").
+📂 Project Structure
+The repository is divided into three main folders:
 
----
+backend/: Contains the Node.js/Express API, database models, and routes.
+frontend/: The customer-facing React application.
+admin/: The React-based dashboard for restaurant owners.
+⚙️ Installation & Setup
+1. Backend Setup
+Navigate to the backend folder and install dependencies:
 
-## ≡ƒùé∩╕Å Project Structure
-
-```
-FOOD-ORDER-MERN/
-Γö£ΓöÇΓöÇ frontend/       # React.js (Vite) - Customer-facing UI
-Γö£ΓöÇΓöÇ admin/          # React.js (Vite) - Admin Dashboard
-ΓööΓöÇΓöÇ backend/        # Node.js + Express.js - REST API + MongoDB
-```
-
----
-
-## ≡ƒ¢á∩╕Å Tech Stack
-
-| Layer     | Technology                        |
-|-----------|-----------------------------------|
-| Frontend  | React.js, Vite, Context API       |
-| Admin     | React.js, Vite                    |
-| Backend   | Node.js, Express.js               |
-| Database  | MongoDB (Mongoose)                |
-| Auth      | JWT (JSON Web Tokens)             |
-| Storage   | Multer (image uploads)            |
-
----
-
-## ΓÜÖ∩╕Å Getting Started
-
-### Prerequisites
-- Node.js >= 18
-- MongoDB (local or Atlas)
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/tamanna-2703/FOOD-ORDER-MERN.git
-cd FOOD-ORDER-MERN
-```
-
-### 2. Backend Setup
-```bash
 cd backend
 npm install
-# Create a .env file with your credentials (see .env.example)
-npm start
-```
+Create a .env file in the backend folder with the following variables:
 
-### 3. Frontend Setup
-```bash
+JWT_SECRET=your_random_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+Run the server:
+
+npm run server
+The server runs on http://localhost:4000.
+
+2. Frontend Setup
+Navigate to the frontend folder and install dependencies:
+
 cd frontend
 npm install
-npm run dev
-```
+Run the client application:
 
-### 4. Admin Setup
-```bash
+npm run dev
+The frontend typically runs on http://localhost:5173.
+
+3. Admin Panel Setup
+Navigate to the admin folder and install dependencies:
+
 cd admin
 npm install
+Run the admin dashboard:
+
 npm run dev
-```
+🔗 API Endpoints
+The backend exposes the following RESTful endpoints:
 
----
+Food
 
-## ≡ƒöÉ Environment Variables (Backend)
+POST /api/food/add - Add a new food item (Admin).
+GET /api/food/list - Get all food items.
+POST /api/food/remove - Remove a food item (Admin).
+User
 
-Create a `.env` file inside the `backend/` folder:
+POST /api/user/register - Create a new user account.
+POST /api/user/login - Login to an account.
+Cart
 
-```env
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=4000
-```
+POST /api/cart/add - Add item to user cart.
+POST /api/cart/remove - Remove item from user cart.
+POST /api/cart/get - Fetch user cart data.
+Orders
 
----
-
-## ≡ƒôí API Routes
-
-| Method | Route              | Description          |
-|--------|--------------------|----------------------|
-| POST   | /api/user/register | Register a new user  |
-| POST   | /api/user/login    | Login user           |
-| GET    | /api/food/list     | Get all food items   |
-| POST   | /api/cart/add      | Add item to cart     |
-| POST   | /api/order/place   | Place an order       |
-
----
-
-## ≡ƒæ⌐ΓÇì≡ƒÆ╗ Author
-
-**Tamanna** ΓÇö [@tamanna-2703](https://github.com/tamanna-2703)
-
----
-
-## ≡ƒôä License
-
-This project is open source and available under the [MIT License](LICENSE).
+POST /api/order/place - Place a new order.
+POST /api/order/verify - Verify Stripe payment.
+POST /api/order/userorders - Get specific user's order history.
+GET /api/order/list - Get all orders (Admin).
+POST /api/order/status - Update order status (Admin).
