@@ -1,5 +1,5 @@
 import OrderModel from "../models/orderModel.js";
-import userModel from "../Models/userModel.js";
+import userModel from "../models/userModel.js";
 import Stripe from "stripe"
 
 
@@ -51,7 +51,7 @@ const placeOrder = async (req, res)=>{
       res.json({success:true, session_url:session.url})
   }catch(error){
     console.log(error);
-    res.json({success:false,messahe:"Error"})
+    res.json({success:false, message:"Error"})
 
   }
 
