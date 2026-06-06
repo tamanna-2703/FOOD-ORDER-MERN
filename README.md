@@ -1,5 +1,7 @@
-Tomato - Full Stack Food Ordering Web App
+Tomato - Full Stack Food Ordering Web App    
+
 A robust, fully responsive food delivery platform built using the MERN stack (MongoDB, Express, React, Node.js). This project consists of three main components: a customer-facing frontend, an admin panel for restaurant management, and a backend API handling data, authentication, and payments.
+
 
 🛠️ Tech Stack
 Frontend (Client & Admin):
