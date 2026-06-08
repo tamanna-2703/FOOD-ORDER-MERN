@@ -5,7 +5,7 @@ const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:4000";
+  const url = import.meta.env.VITE_API_URL || "https://food-order-mern-be.onrender.com";
   const [token, setToken] = useState("");  // ✅ Initial empty
   const[food_list, setFood_list]=useState([])
 
